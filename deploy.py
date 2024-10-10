@@ -193,7 +193,7 @@ def main():
     elif choice == "🤖 Chatbot":
         st.title("Interact with an Adaptive Multi-Model Multi-Prompt Intelligent Assistant 💁")
         st.markdown("----")
-        st.image("assets/langchain2.jpg", use_column_width=False)
+        st.image("assets/langchain.jpg", use_column_width=False)
         st.header("Ask Your Question")
 
         with st.sidebar:
