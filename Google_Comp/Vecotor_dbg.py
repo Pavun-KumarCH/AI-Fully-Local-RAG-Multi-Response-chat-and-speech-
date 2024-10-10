@@ -1,4 +1,4 @@
-
+# Vector
 from langchain_google_genai import GoogleGenerativeAIEmbeddings 
 from langchain.vectorstores import FAISS  # Corrected import for vector stores
 # Import prompt templates from prompt-technique.py

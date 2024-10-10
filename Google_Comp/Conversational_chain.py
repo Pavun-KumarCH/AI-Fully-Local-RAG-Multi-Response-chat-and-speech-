@@ -1,3 +1,5 @@
+# QA chain
+
 import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
@@ -9,10 +11,11 @@ from langchain.vectorstores import FAISS
 memory_history = []
 
 def get_conversational_chain(selected_prompt_template):
-    model = ChatGoogleGenerativeAI(model="gemini-1.5-pro", 
-                                   temperature = 0.7, # Lower for precision
-                                   top_p=0.9 # Allow some creativity while remaining focused
-                                   ) 
+    model = ChatGoogleGenerativeAI(
+        model="gemini-1.5-pro", 
+        temperature=0.3,  # Lower for precision
+        top_p=0.9          # Allow some creativity while remaining focused
+    ) 
     prompt = PromptTemplate(template=selected_prompt_template, input_variables=["context", "question"])
     chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
     return chain
@@ -40,5 +43,3 @@ def user_input(user_question, selected_prompt_template):
     # Update memory history with user question and agent response
     memory_history.append(f"User: {user_question}")
     memory_history.append(f"Agent: {response_text}")
-
-# Streamlit app setup and main loop would go here...
